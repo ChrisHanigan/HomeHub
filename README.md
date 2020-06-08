@@ -3,11 +3,12 @@ A Homescreen for Google Chrome
 
 # Installation
 1. Download these files and unzip
-2. In Google Chrome click the ⋮ menu button, top right.
-3. Under 'more tools' select 'extensions'
-4. turn on developer mode, top right.
-5. click 'Load unpacked' and navigate to the folder containing the downloaded files. Click open.
-6. The extension should now work. Open a new tab to see it!
+2. Open the file APIkeysTemplate.js and edit it as directed.
+3. In Google Chrome click the ⋮ menu button, top right.
+4. Under 'more tools' select 'extensions'
+5. turn on developer mode, top right.
+6. click 'Load unpacked' and navigate to the folder containing the downloaded files. Click open.
+7. The extension should now work. Open a new tab to see it!
 
 This extension is in development and I do plan on releasing this on the chrome app store at v1.0
 
