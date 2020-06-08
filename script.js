@@ -168,7 +168,7 @@ function hub() {
   function callweatherAPI(lat, lon) {
 
 
-    let weatherapi = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=3c8f840eb325eca2feb1795599c4253d`
+    let weatherapi = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${weatherkey}`
     fetch(weatherapi).then(function(weathercall) {
         let weatherdata = weathercall.json();
         return weatherdata;
