@@ -13,7 +13,7 @@ A Homescreen for Google Chrome
 This extension is in development and I do plan on releasing this on the chrome app store at v1.0
 
 # intent
-Create a html website to use as a new tab page which displays all bookmarks and some useful apps
+Create a chrome extension which displays all bookmarks and some useful apps
 without any outside services, keeping everything syncronised to Chrome.
 
 # todo
