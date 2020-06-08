@@ -1,6 +1,16 @@
 # HomeHub
 A Homescreen for Google Chrome
 
+#Installation
+1. Download these files and unzip
+2. In Google Chrome click the ⋮ menu button, top right.
+3. Under 'more tools' select 'extensions'
+4. turn on developer mode, top right.
+5. click 'Load unpacked' and navigate to the folder containing the downloaded files. Click open.
+6. The extension should now work. Open a new tab to see it!
+
+This extension is in development and I do plan on releasing this on the chrome app store at v1.0
+
 #intent
 create a html website to use as a homepage which displays all bookmarks, synced
 from the chrome json file.
@@ -57,10 +67,12 @@ from the chrome json file.
 	- This meant I had to create my own extension just to access bookmarks
 2.
 
-
 #Resources
 https://developer.chrome.com/extensions/getstarted
 https://developer.chrome.com/extensions/bookmarks
 https://developer.chrome.com/extensions/bookmarks#method-get
 https://stackoverflow.com/questions/10268776/why-doesnt-chrome-bookmarks-gettree-work
 https://www.w3schools.com/jsref/met_node_appendchild.asp
+
+#License
+This code is for personal purposes
