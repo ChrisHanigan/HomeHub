@@ -46,7 +46,7 @@ from the chrome json file.
 	- ✅ Get history items from API													
 	- ✅ display items on page															
 7. Add top sites
-  - ✅ Add topsites list
+  	- ✅ Add topsites list
 	- ⬛ add button to return to top topSites									
 8. Add controls																						
 	- ⬛ add bookmark																					
