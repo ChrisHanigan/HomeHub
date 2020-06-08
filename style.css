@@ -1,0 +1,115 @@
+* {
+  color: white;
+}
+
+body {
+  background-image: url("https://source.unsplash.com/random/1920x1080");
+  overflow: hidden;
+}
+
+.page {
+  background-color: rgba(0,0,0, 0.15);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+
+}
+
+#content {
+  overflow-x: auto;
+}
+
+.title {
+  text-align: center;
+  height: 5%;
+  font-size: 40px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.toprow {
+display: flex;
+}
+
+.topitem {
+  flex: 50%;
+  text-align: center;
+}
+
+.topleft {
+  flex: 10%;
+  text-align: center;
+}
+
+
+.btn {
+  background-color: rgba(0,0,0, 0.0);
+  border: none;
+  padding: 4px;
+  padding-left: 10px;
+  font-size: 16px;
+  width: 100%;
+  text-align: left;
+  border-radius: 20px;
+}
+
+.btn:hover {
+  color: cyan;
+  background-color: rgba(0,0,0, 0.5);
+}
+
+.btn:focus {
+  color: white;
+  background-color: rgba(0,255,255, .4);
+  border-radius: 20px;
+  border-width: 0px;
+  outline: none;
+}
+
+.row {
+  display: flex;
+  margin-top: 0px;
+  background-color: rgba(0,0,0, 0.5);
+  height: 92%;
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-right: 5px;
+  border-radius: 20px;
+  border-width: 1px;
+  border-color: rgba(0,0,0, 0.0);
+  border-style: solid;
+}
+
+.bmlist {
+  overflow-y:auto;
+  overflow-x: hidden;
+  list-style: none;
+  flex: 65%;
+  padding: 3px;
+}
+
+.history {
+
+  list-style: none;
+  flex: 25%;
+  padding: 3px;
+  overflow: hidden;
+}
+
+.bmleft {
+  list-style: none;
+  flex: auto;
+  padding: 3px;
+}
+
+a {
+  text-decoration: none;
+  -webkit-text-stroke: 0px black;
+}
+
+a:hover {
+  color: cyan;
+}
