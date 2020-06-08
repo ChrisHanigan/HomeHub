@@ -1,7 +1,7 @@
 # HomeHub
 A Homescreen for Google Chrome
 
-#Installation
+# Installation
 1. Download these files and unzip
 2. In Google Chrome click the ⋮ menu button, top right.
 3. Under 'more tools' select 'extensions'
@@ -11,11 +11,11 @@ A Homescreen for Google Chrome
 
 This extension is in development and I do plan on releasing this on the chrome app store at v1.0
 
-#intent
+# intent
 create a html website to use as a homepage which displays all bookmarks, synced
 from the chrome json file.
 
-#todo
+# todo
 1. Display bookmark contents on pages.
 	- ✅ create Google chrome extension.												
 	- ✅ Make it replace new tab page.													
@@ -53,7 +53,7 @@ from the chrome json file.
 	- ⬛ edit bookmark																					
 	- ⬛ delete bookmark																				
 
-#Maybes
+# Maybes
 1. ⬛ Google keep integration																
 2. ⬛ Gmail integration: recent unread												
 3. ⬛ Youtube integration																		
@@ -62,17 +62,17 @@ from the chrome json file.
 6. ✅ Weather																								
 7. ⬛ google calendar																				
 
-#Comments
+# Comments
 1. The chrome json file was innacessable without using the chrome API
 	- This meant I had to create my own extension just to access bookmarks
 2.
 
-#Resources
+# Resources
 https://developer.chrome.com/extensions/getstarted
 https://developer.chrome.com/extensions/bookmarks
 https://developer.chrome.com/extensions/bookmarks#method-get
 https://stackoverflow.com/questions/10268776/why-doesnt-chrome-bookmarks-gettree-work
 https://www.w3schools.com/jsref/met_node_appendchild.asp
 
-#License
+# License
 This code is for personal purposes
