@@ -14,7 +14,7 @@ This extension is in development and I do plan on releasing this on the chrome a
 
 # intent
 Create a chrome extension which displays all bookmarks and some useful apps
-without any outside services, keeping everything syncronised to Chrome.
+without any outside services, keeping everything synchronised to Chrome.
 
 # todo
 1. Display bookmark contents on pages.
