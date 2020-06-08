@@ -53,7 +53,7 @@ without any outside services, keeping everything syncronised to Chrome.
 	- ⬛ edit bookmark																					
 	- ⬛ delete bookmark																				
 
-# Maybes
+# App integration
 1. ⬛ Google keep integration																
 2. ⬛ Gmail integration: recent unread												
 3. ⬛ Youtube integration																		
@@ -65,7 +65,6 @@ without any outside services, keeping everything syncronised to Chrome.
 # Comments
 1. The chrome json file was innacessable without using the chrome API
 	- This meant I had to create my own extension just to access bookmarks
-2.
 
 # Resources
 https://developer.chrome.com/extensions/getstarted
