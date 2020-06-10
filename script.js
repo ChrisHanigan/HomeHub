@@ -132,6 +132,18 @@ chrome.history.search({
 function hub() {
   label.innerHTML = "Hub"
   clearmid()
+  //prepare containers
+  var appspace = document.createElement("DIV");
+  bmark.appendChild(appspace)
+  appspace.setAttribute('class', 'appspace')
+  var weatherspace = document.createElement("DIV");
+  appspace.appendChild(weatherspace);
+  var topsites = document.createElement("DIV");
+  appspace.appendChild(topsites);
+  weatherspace.setAttribute('class', 'app');
+  topsites.setAttribute('class', 'app');
+
+
   //topsites
   chrome.topSites.get(function(tsitems) {
     tsitems.forEach(function(tsitems) {
@@ -147,7 +159,7 @@ function hub() {
       a.appendChild(itemtext);
       a.href = tsurl
       para.appendChild(a);
-      bmark.appendChild(para)
+      topsites.appendChild(para)
     });
   });
   /////////////////////////////////////////////////////////////////weather app
@@ -179,7 +191,7 @@ function hub() {
         var weatherdisplay = document.createTextNode("The temperature in " + weatherdata.name + " is " + weather.temperature.value + "°")
         para.appendChild(weatherdisplay);
         //para.appendChild(tempdisplay);
-        bmark.appendChild(para);
+        weatherspace.appendChild(para);
       })
   }
 }

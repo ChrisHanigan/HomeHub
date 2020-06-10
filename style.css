@@ -113,3 +113,16 @@ a {
 a:hover {
   color: cyan;
 }
+
+.appspace {
+  display: flex;
+}
+
+.app {
+  width: auto;
+  padding: 10px;
+  margin: auto;
+  background-color: rgba(0,0,0, 0.5);
+  border-radius: 20px;
+  color: black;
+}
