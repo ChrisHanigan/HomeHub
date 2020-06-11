@@ -162,6 +162,31 @@ function hub() {
       topsites.appendChild(para)
     });
   });
+  //bookmarks bar
+  chrome.bookmarks.getTree(function(tree) {
+    tree.forEach(function(tree) {
+      tree.children.forEach((bfolder, i) => {
+        bfolder.children.forEach((quicklink, i) => {
+          if (quicklink.url) {
+            var qlurl = (quicklink.url);
+            var qlname = (quicklink.title);
+            var para = document.createElement("LI");
+            var itemtext = document.createTextNode(qlname);
+            var a = document.createElement("a");
+
+            para.setAttribute('class', 'bm')
+
+            a.appendChild(itemtext);
+            a.href = qlurl;
+            para.appendChild(a);
+            topsites.appendChild(para)
+          }
+        });
+
+      });
+    });
+  });
+
   /////////////////////////////////////////////////////////////////weather app
   const weather = {};
   weather.temperature = {
