@@ -30,7 +30,7 @@ without any outside services, keeping everything synchronised to Chrome.
 	- ✅ clear previous folder items when clicking new folder 	
 	- ✅ allow for folders within folders											
 	- ✅ allow for folders alongside links											
-	- ⬛ show links from top level folders											
+	- ✅ show links from top level folders											
 3. Make it look nice																			
 	- ✅ Apply style sheet																			
 	- ⬛ Give nice looking frames and panels										
@@ -48,7 +48,7 @@ without any outside services, keeping everything synchronised to Chrome.
 	- ✅ display items on page															
 7. Add top sites
   	- ✅ Add topsites list
-	- ⬛ add button to return to top topSites									
+	- ✅ add button to return to top topSites									
 8. Add controls																						
 	- ⬛ add bookmark																					
 	- ⬛ edit bookmark																					
