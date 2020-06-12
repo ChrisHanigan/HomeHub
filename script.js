@@ -3,6 +3,17 @@
 // https://developer.chrome.com/extensions/bookmarks#method-get
 // https://stackoverflow.com/questions/10268776/why-doesnt-chrome-bookmarks-gettree-work
 // https://www.w3schools.com/jsref/met_node_appendchild.asp
+
+/*    CONTENTS
+  1. Page elements
+  2. bookmarks
+  3. history
+  4. hub
+  5. weather
+
+*/
+
+// page elements
 const bmarkfolder = document.getElementById("bmarkfolder");
 const bmark = document.getElementById("bmark");
 const hlist = document.getElementById("hlist");
@@ -25,6 +36,7 @@ function clearmid() {
   }
 }
 
+
 //Gets folders and bookmarks from tree
 function processNode(node) {
   // recursively process child nodes
@@ -35,7 +47,7 @@ function processNode(node) {
   }
   //list boomark folders from bookmarks bar & other bookmarks into left column
   if (node.parentId == 1 || node.parentId == 2) {
-
+    if (node.children) {
     var fname = (node.title);
     var button = document.createElement("BUTTON");
     var para = document.createElement("LI");
@@ -104,6 +116,7 @@ function processNode(node) {
     }
   }
 }
+}
 /////////////////////////////////////////////////////////////////////////history
 // https://developer.chrome.com/extensions/history
 chrome.history.search({
@@ -152,7 +165,6 @@ function hub() {
       var para = document.createElement("LI");
       var itemtext = document.createTextNode(tsname);
       var a = document.createElement("a");
-
       //set class of item for css
       para.setAttribute('class', 'bm')
 
