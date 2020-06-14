@@ -3,7 +3,7 @@
 }
 
 body {
-  background-image: url("https://source.unsplash.com/random/1920x1080");
+  background-image: url("https://source.unsplash.com/random/1920x1080/?nature");
   overflow: hidden;
 }
 
@@ -126,4 +126,37 @@ a:hover {
   background-color: rgba(0,0,0, 0.5);
   border-radius: 20px;
   color: black;
+}
+
+.subtree {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.sbtn {
+  background-color: rgba(0,0,0, 0.4);
+  border: none;
+  padding: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 2px;
+}
+
+.sbtn:hover {
+  color: white;
+  background-color: rgba(0,255,255, .4);
+}
+
+.sbtn:focus {
+  color: white;
+  background-color: rgba(0,255,255, .4);
+  border-radius: 20px;
+  border-width: 0px;
+  outline: none;
 }

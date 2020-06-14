@@ -65,6 +65,10 @@ function processNode(node) {
       //remove previous items if they are being displayed
       clearmid()
       //process each URL
+      var subtree = document.createElement("DIV")
+      bmark.appendChild(subtree)
+
+
       node.children.forEach((bm, i) => {
         if (bm.url) {
           var bmurl = (bm.url);
@@ -83,13 +87,13 @@ function processNode(node) {
         if (bm.children) {
           var bmname = (bm.title);
           var sbutton = document.createElement("BUTTON");
-          var para = document.createElement("LI");
           var itemtext = document.createTextNode(bmname);
 
-          sbutton.setAttribute('class', 'btn')
+          sbutton.setAttribute('class', 'sbtn')
           sbutton.appendChild(itemtext);
-          para.appendChild(sbutton);
-          bmark.appendChild(para);
+          subtree.appendChild(sbutton);
+            //match all items to largest width https://stackoverflow.com/questions/31159732/every-item-to-have-the-same-width-as-the-widest-element
+
 
           sbutton.onclick = function() {
             clearmid()
