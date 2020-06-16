@@ -21,7 +21,7 @@ const hubButton = document.getElementById("hubButton");
 const label = document.getElementById("label");
 const stylesheet = (document.styleSheets[0].cssRules[2]);
 
-var colorarray = ["rgba(0,255,255,", "rgba(0,255,0,", "rgba(130,0,255,", "rgba(255,0,0,", "rgba(255,130,0,"]
+var colorarray = ["rgba(0,255,255,", "rgba(10,255,0,", "rgba(130,10,255,", "rgba(255,10,10,", "rgba(255,130,10,"]
 var highlightColor = colorarray[Math.floor(Math.random() * colorarray.length)];
 stylesheet.style.setProperty('--highlight-colour', highlightColor + ".4)" );
 stylesheet.style.setProperty('--text-highlight', highlightColor + "1)")
