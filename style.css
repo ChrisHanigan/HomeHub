@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
 * {
-  color: white;
+  --highlight-colour: rgba(0,255,255, .4);
+  --text-highlight: cyan;
+  color: rgba(255,255,255, .9);
+  font-family: 'Noto Sans', sans-serif;
+
 }
 
 body {
@@ -28,6 +35,7 @@ body {
   font-size: 40px;
   margin: 0;
   font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .toprow {
@@ -57,13 +65,13 @@ display: flex;
 }
 
 .btn:hover {
-  color: cyan;
+  color: var(--text-highlight);
   background-color: rgba(0,0,0, 0.5);
 }
 
 .btn:focus {
   color: white;
-  background-color: rgba(0,255,255, .4);
+  background-color: var(--highlight-colour);
   border-radius: 20px;
   border-width: 0px;
   outline: none;
@@ -108,10 +116,18 @@ display: flex;
 a {
   text-decoration: none;
   -webkit-text-stroke: 0px black;
+  padding-left: 3px;
+  padding-right: 3px;
 }
 
 a:hover {
-  color: cyan;
+  color: white;
+  background-color: var(--highlight-colour);
+  border-radius: 3px;
+
+}
+a:focus {
+  background-color: rgba(255,255,255, .8);
 }
 
 .appspace {
@@ -150,12 +166,12 @@ a:hover {
 
 .sbtn:hover {
   color: white;
-  background-color: rgba(0,255,255, .4);
+  background-color: var(--highlight-colour);
 }
 
 .sbtn:focus {
   color: white;
-  background-color: rgba(0,255,255, .4);
+  background-color: var(--highlight-colour);
   border-radius: 20px;
   border-width: 0px;
   outline: none;

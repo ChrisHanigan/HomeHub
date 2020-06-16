@@ -19,6 +19,12 @@ const bmark = document.getElementById("bmark");
 const hlist = document.getElementById("hlist");
 const hubButton = document.getElementById("hubButton");
 const label = document.getElementById("label");
+const stylesheet = (document.styleSheets[0].cssRules[2]);
+
+var colorarray = ["rgba(0,255,255,", "rgba(0,255,0,", "rgba(130,0,255,", "rgba(255,0,0,", "rgba(255,130,0,"]
+var highlightColor = colorarray[Math.floor(Math.random() * colorarray.length)];
+stylesheet.style.setProperty('--highlight-colour', highlightColor + ".4)" );
+stylesheet.style.setProperty('--text-highlight', highlightColor + "1)")
 
 //////////////////////////////////////////////////////////////////////bookmarks
 //use chrome API to get bookmarks data
