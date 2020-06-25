@@ -6,6 +6,7 @@
 
 /*    CONTENTS
   1. Page elements
+  2. date title
   2. bookmarks
   3. history
   4. hub
@@ -13,12 +14,13 @@
 
 */
 
-// page elements
+//////////////////////////////////////////////////////////////////////////////// page elements //////////////////////////////////////////////////////////////////
 const bmarkfolder = document.getElementById("bmarkfolder");
 const bmark = document.getElementById("bmark");
 const hlist = document.getElementById("hlist");
 const hubButton = document.getElementById("hubButton");
 const label = document.getElementById("label");
+const date = document.getElementById("date");
 const stylesheet = (document.styleSheets[0].cssRules[2]);
 
 var colorarray = ["rgba(0,255,255,", "rgba(10,255,0,", "rgba(130,10,255,", "rgba(255,10,10,", "rgba(255,130,10,"]
@@ -26,7 +28,38 @@ var highlightColor = colorarray[Math.floor(Math.random() * colorarray.length)];
 stylesheet.style.setProperty('--highlight-colour', highlightColor + ".4)" );
 stylesheet.style.setProperty('--text-highlight', highlightColor + "1)")
 
-//////////////////////////////////////////////////////////////////////bookmarks
+
+//////////////////////////////////////////////////////////////////////////////// DATE /////////////////////////////////////////////////////////////////////////
+function TitleDate() {
+  var d = new Date();
+  var n = d.getDate();
+  var s = "th"
+  if (n == 1 || n == 21 || n == 31) {
+    s = "st"
+  }
+  else {
+    if (n == 2 || n == 22) {
+      s = 'nd'
+    }
+    else {
+      if (n == 3 || n == 23) {
+        s = 'rd'
+      }
+    }
+  }
+
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  var m = monthNames[d.getMonth()]
+  date.innerHTML = n + s + " of " + m;
+}
+
+TitleDate()
+
+
+
+//////////////////////////////////////////////////////////////////////////////// bookmarks /////////////////////////////////////////////////////////////////////////
 //use chrome API to get bookmarks data
 //This goes through the Chrome bookmarks API and retrieves the node tree
 chrome.bookmarks.getTree(function(tree) {
@@ -127,7 +160,7 @@ function processNode(node) {
   }
 }
 }
-/////////////////////////////////////////////////////////////////////////history
+//////////////////////////////////////////////////////////////////////////////// history /////////////////////////////////////////////////////////////////////////
 // https://developer.chrome.com/extensions/history
 chrome.history.search({
   text: '',
@@ -150,7 +183,7 @@ chrome.history.search({
   });
 })
 
-////////////////////////////////////////////////////////////////////////////Hub
+//////////////////////////////////////////////////////////////////////////////// Hub ////////////////////////////////////////////////////////////////////////////
 // https://developer.chrome.com/extensions/topSites
 function hub() {
   label.innerHTML = "Hub"
@@ -209,7 +242,7 @@ function hub() {
     });
   });
 
-  /////////////////////////////////////////////////////////////////weather app
+  ////////////////////////////////////////////////////////////////////////////// weather app /////////////////////////////////////////////////////////////////////////
   const weather = {};
   weather.temperature = {
     unit: "celsius"
@@ -242,6 +275,10 @@ function hub() {
       })
   }
 }
+
+
+
+//////////////////////////////////////////////////////////////////////////////// execute hub /////////////////////////////////////////////////////////////////////////
 
 hub();
 hubButton.onclick = function() {
