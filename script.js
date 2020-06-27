@@ -29,6 +29,38 @@ stylesheet.style.setProperty('--highlight-colour', highlightColor + ".4)" );
 stylesheet.style.setProperty('--text-highlight', highlightColor + "1)")
 
 
+// fade in page
+$(document).ready(function(){
+  $('body').css('display', 'none');
+  $('body').fadeIn(500);
+});
+//
+// $("#background-image").ready(function(){
+//       $("#preload").fadeIn(1000);
+// });
+//
+// $(document.body).css({"background-image": "url(https://source.unsplash.com/random/1920x1080/?nature)"})
+// $(document).ready(function(){
+//   $(document.body).css({"background-size": "auto"})
+// });
+//
+function preloadImage(url)
+{
+    var img=new Image();
+    img.src=url;
+}
+
+preloadImage('https://source.unsplash.com/random/1920x1080/?nature')
+
+//trying to get background to fade in, having trouble with it
+document.body.onload = function(){
+  // $(document.body).css({"background-size": "auto"})
+$(document.body).css({"background-image": "url(https://source.unsplash.com/random/1920x1080/?nature)"})
+$(document.body).css({"transition": "background 500ms ease-in 200ms"})
+$(document.body).fadeIn(100)
+}
+
+
 //////////////////////////////////////////////////////////////////////////////// DATE /////////////////////////////////////////////////////////////////////////
 function TitleDate() {
   var d = new Date();
@@ -267,10 +299,14 @@ function hub() {
       })
       .then(function(weatherdata) {
         weather.temperature.value = Math.floor(weatherdata.main.temp - KELVIN);
-        var para = document.createElement("LI");
-        var weatherdisplay = document.createTextNode("The temperature in " + weatherdata.name + " is " + weather.temperature.value + "°")
-        para.appendChild(weatherdisplay);
-        //para.appendChild(tempdisplay);
+        var para = document.createElement("SPAN");
+        var weatherpara = document.createElement("SPAN");
+        var weatherdisplay = document.createTextNode(weather.temperature.value + "°")
+        var localdisplay = document.createTextNode(" in " + weatherdata.name)
+        weatherpara.appendChild(weatherdisplay);
+        weatherpara.setAttribute('class', 'weatherdisplay')
+        para.appendChild(localdisplay);
+        weatherspace.appendChild(weatherpara);
         weatherspace.appendChild(para);
       })
   }

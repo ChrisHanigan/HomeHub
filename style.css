@@ -10,8 +10,11 @@
 }
 
 body {
-  background-image: url("https://source.unsplash.com/random/1920x1080/?nature");
+  /* https://stackoverflow.com/questions/7319552/can-i-fade-in-a-background-image-css-background-image-with-jquery */
+  /* background-image: url("https://source.unsplash.com/random/1920x1080/?nature"); */
   overflow: hidden;
+  /* background-size: 0 0; */
+
 }
 
 .page {
@@ -175,4 +178,8 @@ a:focus {
   border-radius: 20px;
   border-width: 0px;
   outline: none;
+}
+
+.weatherdisplay {
+  font-size: 4rem;
 }
