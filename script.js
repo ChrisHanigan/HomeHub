@@ -25,12 +25,12 @@ const stylesheet = (document.styleSheets[0].cssRules[2]);
 
 var colorarray = ["rgba(0,255,255,", "rgba(10,255,0,", "rgba(130,10,255,", "rgba(255,10,10,", "rgba(255,130,10,"]
 var highlightColor = colorarray[Math.floor(Math.random() * colorarray.length)];
-stylesheet.style.setProperty('--highlight-colour', highlightColor + ".4)" );
+stylesheet.style.setProperty('--highlight-colour', highlightColor + ".4)");
 stylesheet.style.setProperty('--text-highlight', highlightColor + "1)")
 
 
 // fade in page
-$(document).ready(function(){
+$(document).ready(function() {
   $('body').css('display', 'none');
   $('body').fadeIn(500);
 });
@@ -44,10 +44,9 @@ $(document).ready(function(){
 //   $(document.body).css({"background-size": "auto"})
 // });
 //
-function preloadImage(url)
-{
-    var img=new Image();
-    img.src=url;
+function preloadImage(url) {
+  var img = new Image();
+  img.src = url;
 }
 
 
@@ -76,11 +75,15 @@ function preloadImage(url)
 
 
 //trying to get background to fade in, having trouble with it
-document.body.onload = function(){
+document.body.onload = function() {
   // $(document.body).css({"background-size": "auto"})
-$(document.body).css({"background-image": "url(https://source.unsplash.com/random/1920x1080/?wallpapers)"})
-$(document.body).css({"transition": "background 500ms ease-in 200ms"})
-$(document.body).fadeIn(100)
+  $(document.body).css({
+    "background-image": "url(https://source.unsplash.com/random/1920x1080/?wallpapers)"
+  })
+  $(document.body).css({
+    "transition": "background 500ms ease-in 200ms"
+  })
+  $(document.body).fadeIn(100)
 }
 preloadImage('https://source.unsplash.com/random/1920x1080/?wallpapers')
 
@@ -91,12 +94,10 @@ function TitleDate() {
   var s = "th"
   if (n == 1 || n == 21 || n == 31) {
     s = "st"
-  }
-  else {
+  } else {
     if (n == 2 || n == 22) {
       s = 'nd'
-    }
-    else {
+    } else {
       if (n == 3 || n == 23) {
         s = 'rd'
       }
@@ -143,78 +144,94 @@ function processNode(node) {
   //list boomark folders from bookmarks bar & other bookmarks into left column
   if (node.parentId == 1 || node.parentId == 2) {
     if (node.children) {
-    var fname = (node.title);
-    var button = document.createElement("BUTTON");
-    var para = document.createElement("LI");
-    var textnode = document.createTextNode(fname);
+      var fname = (node.title);
+      var button = document.createElement("BUTTON");
+      var para = document.createElement("LI");
+      var textnode = document.createTextNode(fname);
 
-    button.setAttribute('class', 'btn')
-    button.appendChild(textnode);
-    para.appendChild(button);
-    bmarkfolder.appendChild(para);
+      button.setAttribute('class', 'btn')
+      button.appendChild(textnode);
+      para.appendChild(button);
+      bmarkfolder.appendChild(para);
 
-    //opens folder and displays contents in centre column
-    button.onclick = function openFolder() {
-      //set label
-      label.innerHTML = fname
-      //remove previous items if they are being displayed
-      clearmid()
-      //process each URL
-      var subtree = document.createElement("DIV")
-      bmark.appendChild(subtree)
+      //opens folder and displays contents in centre column
+      button.onclick = function openFolder() {
+        //set label
+        label.innerHTML = fname
+        //remove previous items if they are being displayed
+        clearmid()
+        //process each URL
+        var subtree = document.createElement("DIV")
+        var div = document.createElement("DIV");
+        var pdiv = document.createElement("DIV");
+        var ldiv = document.createElement("DIV");
+        var iframe = document.createElement("IFRAME");
+
+        bmark.appendChild(subtree)
+        bmark.appendChild(div)
+        div.setAttribute('class', 'middle-container')
+        subtree.setAttribute('class', 'subtreediv')
+        ldiv.setAttribute('class', 'bmitems')
+        div.appendChild(ldiv)
+        pdiv.setAttribute('class', 'bmpreview')
+        div.appendChild(pdiv)
+        pdiv.appendChild(iframe)
+
+        node.children.forEach((bm, i) => {
+          if (bm.url) {
+            var bmurl = (bm.url);
+            var bmname = (bm.title);
+            var para = document.createElement("LI");
+            var itemtext = document.createTextNode(bmname);
+            var a = document.createElement("a");
 
 
-      node.children.forEach((bm, i) => {
-        if (bm.url) {
-          var bmurl = (bm.url);
-          var bmname = (bm.title);
-          var para = document.createElement("LI");
-          var itemtext = document.createTextNode(bmname);
-          var a = document.createElement("a");
+            para.setAttribute('class', 'bm')
+            a.appendChild(itemtext);
+            a.href = bmurl
+            para.appendChild(a);
+            ldiv.appendChild(para)
+            a.onmouseover = function preview() {
+              iframe.src = bmurl;
+            }
+          }
+          //process subfolder
+          if (bm.children) {
+            var bmname = (bm.title);
+            var sbutton = document.createElement("BUTTON");
+            var itemtext = document.createTextNode(bmname);
 
-          para.setAttribute('class', 'bm')
-          a.appendChild(itemtext);
-          a.href = bmurl
-          para.appendChild(a);
-          bmark.appendChild(para)
-        }
-        //process subfolder
-        if (bm.children) {
-          var bmname = (bm.title);
-          var sbutton = document.createElement("BUTTON");
-          var itemtext = document.createTextNode(bmname);
-
-          sbutton.setAttribute('class', 'sbtn')
-          sbutton.appendChild(itemtext);
-          subtree.appendChild(sbutton);
+            sbutton.setAttribute('class', 'sbtn')
+            sbutton.appendChild(itemtext);
+            subtree.appendChild(sbutton);
             //match all items to largest width https://stackoverflow.com/questions/31159732/every-item-to-have-the-same-width-as-the-widest-element
 
 
-          sbutton.onclick = function() {
-            clearmid()
-            bm.children.forEach((subf, i) => {
-              if (subf.url) {
-                label.innerHTML = bmname
-                var subfurl = (subf.url);
-                var subfname = (subf.title);
-                var para = document.createElement("LI");
-                var itemtext = document.createTextNode(subfname);
-                var a = document.createElement("a");
+            sbutton.onclick = function() {
+              clearmid()
+              bm.children.forEach((subf, i) => {
+                if (subf.url) {
+                  label.innerHTML = bmname
+                  var subfurl = (subf.url);
+                  var subfname = (subf.title);
+                  var para = document.createElement("LI");
+                  var itemtext = document.createTextNode(subfname);
+                  var a = document.createElement("a");
 
 
-                para.setAttribute('class', 'bm')
-                a.appendChild(itemtext);
-                a.href = subfurl
-                para.appendChild(a);
-                bmark.appendChild(para)
-              }
-            });
+                  para.setAttribute('class', 'bm')
+                  a.appendChild(itemtext);
+                  a.href = subfurl
+                  para.appendChild(a);
+                  bmark.appendChild(para)
+                }
+              });
+            }
           }
-        }
-      });
+        });
+      }
     }
   }
-}
 }
 //////////////////////////////////////////////////////////////////////////////// history /////////////////////////////////////////////////////////////////////////
 // https://developer.chrome.com/extensions/history
@@ -338,13 +355,13 @@ function hub() {
         weatherspace.appendChild(div);
 
         //put this into an array for each function {x} = number
-        var tomo = document.createTextNode(Math.floor(weatherdata.daily[1].feels_like.day - KELVIN)
-        + " | " + Math.floor(weatherdata.daily[2].feels_like.day - KELVIN)
-        + " | " + Math.floor(weatherdata.daily[3].feels_like.day - KELVIN)
-        + " | " + Math.floor(weatherdata.daily[4].feels_like.day - KELVIN)
-        + " | " + Math.floor(weatherdata.daily[5].feels_like.day - KELVIN)
-        + " | " + Math.floor(weatherdata.daily[6].feels_like.day - KELVIN)
-        + " | " + Math.floor(weatherdata.daily[7].feels_like.day - KELVIN))
+        var tomo = document.createTextNode(Math.floor(weatherdata.daily[1].feels_like.day - KELVIN) +
+          " | " + Math.floor(weatherdata.daily[2].feels_like.day - KELVIN) +
+          " | " + Math.floor(weatherdata.daily[3].feels_like.day - KELVIN) +
+          " | " + Math.floor(weatherdata.daily[4].feels_like.day - KELVIN) +
+          " | " + Math.floor(weatherdata.daily[5].feels_like.day - KELVIN) +
+          " | " + Math.floor(weatherdata.daily[6].feels_like.day - KELVIN) +
+          " | " + Math.floor(weatherdata.daily[7].feels_like.day - KELVIN))
         var span2 = document.createElement("SPAN");
         span2.appendChild(tomo);
         span2.setAttribute('class', 'weatherspan')
