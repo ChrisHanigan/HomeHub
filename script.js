@@ -50,16 +50,39 @@ function preloadImage(url)
     img.src=url;
 }
 
-preloadImage('https://source.unsplash.com/random/1920x1080/?nature')
+
+
+// /** fade in effect for background on google's new tab
+//  * Fade in effect for both collection and image tile. Once the image
+//  * successfully loads, we can assume the background image with the same source
+//  * has also loaded. Then, we set opacity for the tile to start the animation.
+//  * @param {!Object} tile The tile to add the fade in animation to.
+//  * @param {string} imageUrl the image url for the tile
+//  * @param {?Function} countLoad If not null, called after the tile finishes
+//  *     loading.
+//  */
+// customize.fadeInImageTile = function(tile, imageUrl, countLoad) {
+//   const image = new Image();
+//   image.onload = () => {
+//     tile.style.opacity = '1';
+//     if (countLoad) {
+//       countLoad();
+//     }
+//   };
+//   image.src = imageUrl;
+// };
+
+
+
 
 //trying to get background to fade in, having trouble with it
 document.body.onload = function(){
   // $(document.body).css({"background-size": "auto"})
-$(document.body).css({"background-image": "url(https://source.unsplash.com/random/1920x1080/?nature)"})
+$(document.body).css({"background-image": "url(https://source.unsplash.com/random/1920x1080/?wallpapers)"})
 $(document.body).css({"transition": "background 500ms ease-in 200ms"})
 $(document.body).fadeIn(100)
 }
-
+preloadImage('https://source.unsplash.com/random/1920x1080/?wallpapers')
 
 //////////////////////////////////////////////////////////////////////////////// DATE /////////////////////////////////////////////////////////////////////////
 function TitleDate() {
@@ -79,12 +102,13 @@ function TitleDate() {
       }
     }
   }
-
+  const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var w = dayNames[d.getDay()];
   const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
   ];
   var m = monthNames[d.getMonth()]
-  date.innerHTML = n + s + " of " + m;
+  date.innerHTML = w + " " + n + s + " of " + m;
 }
 
 TitleDate()
@@ -292,22 +316,40 @@ function hub() {
   function callweatherAPI(lat, lon) {
 
 
-    let weatherapi = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${weatherkey}`
+    let weatherapi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${weatherkey}`
     fetch(weatherapi).then(function(weathercall) {
         let weatherdata = weathercall.json();
         return weatherdata;
       })
       .then(function(weatherdata) {
-        weather.temperature.value = Math.floor(weatherdata.main.temp - KELVIN);
-        var para = document.createElement("SPAN");
+        weather.temperature.value = Math.floor(weatherdata.current.feels_like - KELVIN);
+        var span = document.createElement("SPAN");
         var weatherpara = document.createElement("SPAN");
         var weatherdisplay = document.createTextNode(weather.temperature.value + "°")
-        var localdisplay = document.createTextNode(" in " + weatherdata.name)
+        var localdisplay = document.createTextNode(weatherdata.timezone + " (" + Math.floor(weatherdata.current.temp - KELVIN) + "°)")
+        var div = document.createElement("div");
         weatherpara.appendChild(weatherdisplay);
         weatherpara.setAttribute('class', 'weatherdisplay')
-        para.appendChild(localdisplay);
-        weatherspace.appendChild(weatherpara);
-        weatherspace.appendChild(para);
+        span.appendChild(localdisplay);
+        div.appendChild(weatherpara);
+        div.appendChild(document.createElement("BR"));
+        div.appendChild(document.createElement("BR"));
+        div.appendChild(span);
+        weatherspace.appendChild(div);
+
+        //put this into an array for each function {x} = number
+        var tomo = document.createTextNode(Math.floor(weatherdata.daily[1].feels_like.day - KELVIN)
+        + " | " + Math.floor(weatherdata.daily[2].feels_like.day - KELVIN)
+        + " | " + Math.floor(weatherdata.daily[3].feels_like.day - KELVIN)
+        + " | " + Math.floor(weatherdata.daily[4].feels_like.day - KELVIN)
+        + " | " + Math.floor(weatherdata.daily[5].feels_like.day - KELVIN)
+        + " | " + Math.floor(weatherdata.daily[6].feels_like.day - KELVIN)
+        + " | " + Math.floor(weatherdata.daily[7].feels_like.day - KELVIN))
+        var span2 = document.createElement("SPAN");
+        span2.appendChild(tomo);
+        span2.setAttribute('class', 'weatherspan')
+        weatherspace.appendChild(document.createElement("BR"));
+        weatherspace.appendChild(span2);
       })
   }
 }

@@ -52,7 +52,9 @@ without any outside services, keeping everything synchronised to Chrome.
 8. Add controls																						
 	- ⬛ add bookmark																					
 	- ⬛ edit bookmark																					
-	- ⬛ delete bookmark																				
+	- ⬛ delete bookmark
+8. Polish																			
+	- ⬛ Add scroll support to left side bar
 
 # App integration
 1. ⬛ Google keep integration																
