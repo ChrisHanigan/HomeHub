@@ -74,7 +74,7 @@ function preloadImage(url) {
 
 
 
-//trying to get background to fade in, having trouble with it
+// trying to get background to fade in, having trouble with it
 document.body.onload = function() {
   // $(document.body).css({"background-size": "auto"})
   $(document.body).css({
@@ -191,8 +191,14 @@ function processNode(node) {
             a.href = bmurl
             para.appendChild(a);
             ldiv.appendChild(para)
+            ///////////////////////////////////////////////////// preview
             a.onmouseover = function preview() {
               iframe.src = bmurl;
+              iframe.onerror = function() {
+                // do what you want with the error event
+                console.log('changing url');
+                iframe.src = 'options.html'
+                }
             }
           }
           //process subfolder
@@ -263,16 +269,24 @@ function hub() {
   clearmid()
   //prepare containers
   var appspace = document.createElement("DIV");
-  bmark.appendChild(appspace)
-  appspace.setAttribute('class', 'appspace')
   var weatherspace = document.createElement("DIV");
-  appspace.appendChild(weatherspace);
   var topsites = document.createElement("DIV");
-  appspace.appendChild(topsites);
+  var bookmarksbar = document.createElement("DIV");
+  var quicklinks = document.createElement("DIV");
+  appspace.setAttribute('class', 'appspace')
   weatherspace.setAttribute('class', 'app');
-  topsites.setAttribute('class', 'app');
+  quicklinks.setAttribute('class', 'app quicklinks');
 
 
+  bmark.appendChild(appspace)
+  appspace.appendChild(weatherspace);
+  appspace.appendChild(quicklinks);
+  quicklinks.appendChild(bookmarksbar);
+  quicklinks.appendChild(topsites);
+
+
+  bookmarksbar.setAttribute('class', 'bookmarksbar');
+  topsites.setAttribute('class', 'topsites');
   //topsites
   chrome.topSites.get(function(tsitems) {
     tsitems.forEach(function(tsitems) {
@@ -307,7 +321,7 @@ function hub() {
             a.appendChild(itemtext);
             a.href = qlurl;
             para.appendChild(a);
-            topsites.appendChild(para)
+            bookmarksbar.appendChild(para)
           }
         });
 

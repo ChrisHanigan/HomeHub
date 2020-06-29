@@ -1,6 +1,6 @@
 {
     "name": "Home Hub",
-    "version": "0.90",
+    "version": "0.95-1",
     "description": "HomeHub replaces your new tab page with a 'hub' for your bookmarks, quicklinks, topsites, history, as well as the weather and date.",
     "permissions": ["geolocation", "topSites", "history", "bookmarks"],
     "chrome_url_overrides" : {"newtab": "homepage.html"},

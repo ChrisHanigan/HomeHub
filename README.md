@@ -33,10 +33,10 @@ without any outside services, keeping everything synchronised to Chrome.
 	- ✅ show links from top level folders											
 3. Make it look nice																			
 	- ✅ Apply style sheet																			
-	- ⬛ Give nice looking frames and panels										
+	- ✅ Give nice looking frames and panels										
 	- ⬛ Apply animations																			
 	- ✅ give it a nice background															
-	- ⬛ Create card displays for each app											
+	- ✅ Create card displays for each app											
 5. Create options page																	
 	- ⬛ Allow for saving settings															
 	- ⬛ toggle new page replacement														
@@ -47,14 +47,14 @@ without any outside services, keeping everything synchronised to Chrome.
 	- ✅ Get history items from API													
 	- ✅ display items on page															
 7. Add top sites
-  	- ✅ Add topsites list
+  - ✅ Add topsites list
 	- ✅ add button to return to top topSites									
 8. Add controls																						
 	- ⬛ add bookmark																					
 	- ⬛ edit bookmark																					
 	- ⬛ delete bookmark
 8. Polish																			
-	- ⬛ Add scroll support to left side bar
+	- ✅ Add scroll support to left side bar
 
 # App integration
 1. ⬛ Google keep integration																
