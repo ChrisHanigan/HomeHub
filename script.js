@@ -177,7 +177,7 @@ function processNode(node) {
         div.appendChild(pdiv)
         pdiv.appendChild(iframe)
 
-        node.children.forEach((bm, i) => {
+        node.children.forEach((bm) => {
           if (bm.url) {
             var bmurl = (bm.url);
             var bmname = (bm.title);
@@ -191,8 +191,9 @@ function processNode(node) {
             a.href = bmurl
             para.appendChild(a);
             ldiv.appendChild(para)
+
             ///////////////////////////////////////////////////// preview
-            a.onmouseover = function preview() {
+            para.onmouseover = function preview() {
               iframe.src = bmurl;
               iframe.onerror = function() {
                 // do what you want with the error event
@@ -215,7 +216,7 @@ function processNode(node) {
 
             sbutton.onclick = function() {
               clearmid()
-              bm.children.forEach((subf, i) => {
+              bm.children.forEach((subf) => {
                 if (subf.url) {
                   label.innerHTML = bmname
                   var subfurl = (subf.url);
@@ -307,8 +308,8 @@ function hub() {
   //bookmarks bar
   chrome.bookmarks.getTree(function(tree) {
     tree.forEach(function(tree) {
-      tree.children.forEach((bfolder, i) => {
-        bfolder.children.forEach((quicklink, i) => {
+      tree.children.forEach((bfolder) => {
+        bfolder.children.forEach((quicklink) => {
           if (quicklink.url) {
             var qlurl = (quicklink.url);
             var qlname = (quicklink.title);

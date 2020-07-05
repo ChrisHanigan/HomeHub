@@ -2,6 +2,10 @@
 A Homescreen for Google Chrome
 
 # Installation
+Click 'add to chrome' on the Chrome web store page:
+https://chrome.google.com/webstore/detail/home-hub-new-tab-page-boo/nhdnoclieheddmjkjpepbhhhldmjkmel
+
+Manual installation via Chrome developer mode
 1. Download these files and unzip
 2. Open the file APIkeysTemplate.js and edit it as directed.
 3. In Google Chrome click the ⋮ menu button, top right.
